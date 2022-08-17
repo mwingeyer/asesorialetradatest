@@ -38,7 +38,7 @@
         <script type="text/javascript" src="vistas/js/all.min.js"></script>  
 		<!-- <script src="js/tabs.js" type="text/javascript"></script> -->
 
-		
+	
 		<!-- =======================================================
 	    Theme Name: Asesoria Letrada "Buscador Circulares"
 	    Theme URL: asesorialetrada.sanjuan.gob.ar

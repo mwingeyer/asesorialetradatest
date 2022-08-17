@@ -1,31 +1,4 @@
 <?php
-	$nombreServidor = "localhost";
-	$usuario = "sa";
-	$contraseña="mwingeyer";
-	$nombreBaseDatos="DigestoJuri";
-	try{
-		$conn = new PDO("sqlsrv:server=$nombreServidor;database=$nombreBaseDatos", $usuario, $contraseña);
-		//echo "Conexion exitosa en el servidor $nombreServidor";
-	} catch(Exception $e){
-		echo "Ocurrio un error" .$e->getMessage();
-	}
-
-	$cantidad = 0;
-	$cantidad1 = 0;
-	$query = "select *from Identificador where TipoIdentificadorId = 1 order by Identificador";
-	$query1 = "select *from voces order by nombre";
-	$query2 = "select * from normas";
-	$stmt = $conn->query($query);
-	$stmt1 = $conn->query($query1);
-	$stmt2 = $conn->query($query2);
-	$registros = $stmt->fetchAll(PDO::FETCH_OBJ);
-	$registros1 = $stmt1->fetchAll(PDO::FETCH_OBJ);
-	$registros2 = $stmt2->fetchAll(PDO::FETCH_OBJ);
-	$id="";
-?>
-
-
-<?php
     date_default_timezone_set('America/Argentina/San_Juan');
     $urldominio = "http://10.2.132.73:8085/ol/";
     $urllic = "https://sanjuan.gob.ar/ol/?or=8BC9FE18CD734FA4B60CFA24736EC529";
@@ -35,12 +8,22 @@
         CURLOPT_HTTPHEADER => array('Content-Type:application/json'),
         CURLOPT_RETURNTRANSFER => true
     ];
+
+    /*CONEXION API NORMA*/
     $ch2 = curl_init($urllic);
     curl_setopt_array($ch2, $options);
     $datosjson = curl_exec($ch2);    
     $res = json_decode($datosjson);  
-    $datos=json_decode(file_get_contents('https://sanjuan.gob.ar/ol/?or=8BC9FE18CD734FA4B60CFA24736EC529'),true);
+    $datosNormas=json_decode(file_get_contents('https://sanjuan.gob.ar/ol/?or=8BC9FE18CD734FA4B60CFA24736EC529'),true);
     $id="";
+
+    /*CONEXION API ORGANISMO*/
+    $ch2 = curl_init($urllic);
+    curl_setopt_array($ch2, $options);
+    $datosjson = curl_exec($ch2);    
+    $res = json_decode($datosjson);  
+    $datosOrganismos=json_decode(file_get_contents('https://sanjuan.gob.ar/ol/?or=8BC9FE18CD734FA4B60CFA24736EC527'),true);
+    var_dump($datosOrganismos);
 ?>
 
 <!-- LAYOUT -->
@@ -63,12 +46,31 @@
 				<div class="row col-lg-12">
 					<label><i class="material-icons tiny">business</i>Organismos</label>
 						<select class="browser-default">
-							<option value="" disabled selected>Seleccione un Organismo</option>
-							<?php foreach ($registros as $fila):?>
+							<?php
+					         $cantidad=count($datosOrganismos['res']['recordset']);
+					         for($i=0;$i<$cantidad;$i++){
 
-							   	<option id="organismos" value="<?php echo $fila->Id ?>"><?php echo $fila->Identificador?></option>
-								
-							<?php endforeach; ?>
+					          $nombre=$datosOrganismos['res']['recordset'][$i]['Nombre'];	
+					          $asiento=$datosOrganismos['res']['recordset'][$i]['Asiento'];
+					          $tema=$datosOrganismos['res']['recordset'][$i]['TemaGeneral'];
+					          $fecha=$datosOrganismos['res']['recordset'][$i]['FechaCarga'];
+					          $urlpdf=$datosOrganismos['res']['recordset'][$i]['Url'];
+					          $idInstitucional = $datosOrganismos['res']['recordset'][$i]['IdentInstitucional'];
+					          $voz = $datosOrganismos['res']['recordset'][$i]['Voz'];
+					          $p_claves = $datosOrganismos['res']['recordset'][$i]['PalabrasClaves'];
+
+					          $fechaCarga = date('Y-m-d');
+					          $id = $i;
+					          
+					     	 }
+					        ?>
+							<option value="" disabled selected>Seleccione un Organismo</option>
+							
+
+							   	<option id="organismos" value="">Ministerio</option>
+							
+							
+						
 
 						</select>
 				</div>
@@ -77,11 +79,11 @@
 					<label><i class="material-icons tiny">business</i>Voces</label>
 						<select class="browser-default">
 							<option value="" disabled selected>Seleccione las Voces</option>
-							<?php foreach ($registros1 as $fila1):?>
-
-							   	<option value="<?php echo $fila1->id; ?>"><?php echo $fila1->nombre?></option>
 							
-							<?php endforeach; ?>
+
+							   	<option value=""></option>
+							
+							
 
 						</select>
 				</div>
@@ -94,17 +96,17 @@
 	  <!-- Columna de Encontrados -->
 	  <div class="col-lg-8 card"> 
 		<?php
-         $cantidad=count($datos['res']['recordset']);
+         $cantidad=count($datosNormas['res']['recordset']);
          for($i=0;$i<$cantidad;$i++){
 
-          $nombre=$datos['res']['recordset'][$i]['Nombre'];	
-          $asiento=$datos['res']['recordset'][$i]['Asiento'];
-          $tema=$datos['res']['recordset'][$i]['TemaGeneral'];
-          $fecha=$datos['res']['recordset'][$i]['FechaCarga'];
-          $urlpdf=$datos['res']['recordset'][$i]['Url'];
-          $idInstitucional = $datos['res']['recordset'][$i]['IdentInstitucional'];
-          $voz = $datos['res']['recordset'][$i]['Voz'];
-          $p_claves = $datos['res']['recordset'][$i]['PalabrasClaves'];
+          $nombre=$datosNormas['res']['recordset'][$i]['Nombre'];	
+          $asiento=$datosNormas['res']['recordset'][$i]['Asiento'];
+          $tema=$datosNormas['res']['recordset'][$i]['TemaGeneral'];
+          $fecha=$datosNormas['res']['recordset'][$i]['FechaCarga'];
+          $urlpdf=$datosNormas['res']['recordset'][$i]['Url'];
+          $idInstitucional = $datosNormas['res']['recordset'][$i]['IdentInstitucional'];
+          $voz = $datosNormas['res']['recordset'][$i]['Voz'];
+          $p_claves = $datosNormas['res']['recordset'][$i]['PalabrasClaves'];
 
           $fechaCarga = date('Y-m-d');
           $id = $i;
@@ -142,6 +144,7 @@
 
 			
 		</div>
+	</div>
      
     <!-- Fin LAYOUT-->
 
@@ -174,7 +177,7 @@
 	Ver Dictamenes
 	=============================================-->
 	  
-	<div class="modal" id="verDictamenes">
+<!-- 	<div class="modal" id="verDictamenes">
 	    <div class="modal-dialog">
 		    <div class="modal-content">
 		
@@ -221,4 +224,4 @@
 	            </form>
 	          </div>
 	        </div>
-	      </div>
+	      </div> -->

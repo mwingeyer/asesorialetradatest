@@ -17,7 +17,6 @@
 ?>
 
 
-
 <!-- LAYOUT -->
 <div class="row">
      
