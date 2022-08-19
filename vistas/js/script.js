@@ -209,3 +209,20 @@ function validarMensaje(){
 /*=====  Fin de VALIDAR MENSAJES   ======*/
 
 
+/*=====  Fin de VER CIRCULAR   ======*/
+
+$(".verCircular").click(function(){
+
+	idCircular = $(this).attr("value");
+	console.log("idCircular", idCircular);
+
+
+
+
+})
+
+
+
+/*=====  Fin de VER CIRCULAR   ======*/
+
+

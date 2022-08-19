@@ -55,22 +55,38 @@
 					
 							if ($nombre == 'Circular') {
 
-								echo '
-									  	<div class="col-lg-12 card p-2">
-											<hr aria-hidden="true" style="min-height: 0.1rem!important; background: url(https://d1pucn86e4upao.cloudfront.net/templates/g5_hydrogen/custom/images/borde-colores.svg)!important;">
-											<h4>'.$asiento.'</h4>
-											<p class="container">'.$tema.'</p>
-											<div class="row col-lg-2 float-right">
-												<button data-toggle="modal" data-target="#verCircular" type="button" class="btn border-0 text-white flex right" style="background: #B71C1C">Ver</button>
-											</div>
-											<div class="fecha">'.$fecha.'</div>
-										</div>
-
-									';
-							}
+								 echo '<hr aria-hidden="true" style="min-height: 0.1rem!important; background: url(https://d1pucn86e4upao.cloudfront.net/templates/g5_hydrogen/custom/images/borde-colores.svg)!important;">
+                        <ol id="'.$i.'">
+                          <div class="col-lg-12 card">
+                            <h3 class="d-lg-block">'.$asiento.'</h3>
+                            <h5 class="my-2 my-lg-3">'.$tema.'</h5>
+                            <div class="fecha">'.$fechaCarga.'</div> 
+                          </div>
+                        <span>
+                        <a href="#verCircular'.$i.'" data-toggle="modal">                          
+                        	<i class="btn btn-danger verCircular">Ver</i>
+                        </a>
+                        </span>
+                        </ol>
+                        
+                        <div id="verCircular'.$i.'" class="modal fade">
+                          <div class="modal-dialog modal-content">
+                            <div class="modal-header" style="border:1px solid #eee">
+                              <h4 class="modal-title">'.$asiento.'</h4>
+                            </div>
+                            <div class="modal-body" style="border:1px solid #eee">
+                              <p class="">'.$tema.'</p>
+                            </div>
+                            <div class="modal-footer d-flex justify-content-between">
+                              <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                              <button type="submit" class="btn btn-primary float-right"><a class="text-white" target="_blank" href ="'.$urlpdf.'">Descargar</a></button>
+                            </div>  
+                          </div>
+                        </div>';
+                  }
 						}
-						?>
-								</div>
+				?>
+			</div>
 
 <!-- Fin LAYOUT-->
 
@@ -98,7 +114,7 @@
 
 <!--=============================================
 Ver Circular
-=============================================-->
+============================================
 <div class="modal" id="verCircular">
 	<div class="modal-dialog">
 		<div class="modal-content">
@@ -126,5 +142,5 @@ Ver Circular
 		</div>
 	</div>
 </div>
-<!--=============================================-->
+=============================================-->
 
