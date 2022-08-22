@@ -1,17 +1,11 @@
 <?php
     date_default_timezone_set('America/Argentina/San_Juan');
     $urldominio = "http://10.2.132.73:8085/ol/";
-    $urllic = "https://sanjuan.gob.ar/ol/?or=8BC9FE18CD734FA4B60CFA24736EC529";
-    $ch2 = curl_init();
     $options = [
         CURLOPT_FAILONERROR => true,
         CURLOPT_HTTPHEADER => array('Content-Type:application/json'),
         CURLOPT_RETURNTRANSFER => true
     ];
-    $ch2 = curl_init($urllic);
-    curl_setopt_array($ch2, $options);
-    $datosjson = curl_exec($ch2);    
-    $res = json_decode($datosjson);  
     $datos=json_decode(file_get_contents('https://sanjuan.gob.ar/ol/?or=8BC9FE18CD734FA4B60CFA24736EC529'),true);
     $id="";
 ?>
@@ -26,43 +20,52 @@
 
       <!-- COLUMNA IZQUIERDA -->
         <div class=" col-lg-8 intro">
-          
           <?php
+            $n =0;
             $cantidad=count($datos['res']['recordset']);
             for($i=0;$i<$cantidad;$i++){
 
-              $nombre=$datos['res']['recordset'][$i]['Nombre']; 
-              $asiento=$datos['res']['recordset'][$i]['Asiento'];
+              $id=$datos['res']['recordset'][$i]['Id'];
+              $feSancion=$datos['res']['recordset'][$i]['FechaSancion'];
+              $anio=$datos['res']['recordset'][$i]['Anio'];
+              $numNor=$datos['res']['recordset'][$i]['NumeroNorma'];
+              $nombre=$datos['res']['recordset'][$i]['Nombre'];   
               $tema=$datos['res']['recordset'][$i]['TemaGeneral'];
-              $fecha=$datos['res']['recordset'][$i]['FechaCarga'];
               $urlpdf=$datos['res']['recordset'][$i]['Url'];
+              $asiento=$datos['res']['recordset'][$i]['Asiento'];
+              $feCarga=$datos['res']['recordset'][$i]['FechaCarga'];
               $idInstitucional = $datos['res']['recordset'][$i]['IdentInstitucional'];
               $voz = $datos['res']['recordset'][$i]['Voz'];
-              $p_claves = $datos['res']['recordset'][$i]['PalabrasClaves'];
-              $fechaCarga = date('Y-m-d');
+              $p_claves = $datos['res']['recordset'][$i]['PalabrasClaves'];  
+              if($anio < "2022"){
+                     $acro = "ALG";
+                   }else{
+                     $acro = "AJYLG";
+              }
              
-              if ($nombre == 'Circular') {
+              if ($nombre == 'Circular'){
             
-                if($i <= 1){  
+                $n=$n+1;              
+
+                if ($n <=2){
                 
                   echo '<hr aria-hidden="true" style="min-height: 0.1rem!important; background: url(https://d1pucn86e4upao.cloudfront.net/templates/g5_hydrogen/custom/images/borde-colores.svg)!important;">
-                        <ol id="'.$i.'">
+                        <ol id="'.$id.'">
                           <div class="col-lg-12">
-                            <h3 class="d-lg-block">'.$asiento.'</h3>
-                            <h4 class="my-2 my-lg-5">'.$tema.'</h4>
-                            <div class="fecha">'.$fechaCarga.'</div> 
+                            <h3 class="d-lg-block">CIR-'.$numNor.'-'.$acro.'-'.$anio.'</h3>
+                            <h5 class="my-2 my-lg-5">'.$tema.'</h5> 
                           </div>
-                        <span>
-                        <a href="#verCircular'.$i.'" data-toggle="modal">                          
-                        	<i class="btn btn-danger verCircular">Ver</i>
-                        </a>
-                        </span>
+                          <span>
+                            <a href="#verCircular'.$id.'" data-toggle="modal">                          
+                            	<i class="btn btn-danger verCircular">Ver</i>
+                            </a>
+                          </span>
                         </ol>
                         
-                        <div id="verCircular'.$i.'" class="modal fade">
+                        <div id="verCircular'.$id.'" class="modal fade">
                           <div class="modal-dialog modal-content">
                             <div class="modal-header" style="border:1px solid #eee">
-                              <h3 class="modal-title">'.$asiento.'</h3>
+                              <h3 class="modal-title">CIR-'.$numNor.'-'.$acro.'-'.$anio.'</h3>
                             </div>
                             <div class="modal-body" style="border:1px solid #eee">
                               <p class="">'.$tema.'</p>
@@ -73,16 +76,13 @@
                             </div>  
                           </div>
                         </div>';
-                          
-                  }              
-
+                }          
               } 
-            }  
-               
-          ?>
-        
+            }           
+                     
+          ?> 
         </div>
-          
+        
 
         <!-- COLUMNA DERECHA -->
         <div class="col-lg-4" id="sectorTabla">
@@ -96,30 +96,39 @@
             
             <tr>
               <?php
+                $n =0;
                 $cantidad=count($datos['res']['recordset']);
-
                 for($i=0;$i<$cantidad;$i++){
 
+                  $id=$datos['res']['recordset'][$i]['Id'];
+                  $feSancion=$datos['res']['recordset'][$i]['FechaSancion'];
+                  $anio=$datos['res']['recordset'][$i]['Anio'];
+                  $numNor=$datos['res']['recordset'][$i]['NumeroNorma'];
                   $nombre=$datos['res']['recordset'][$i]['Nombre']; 
-                  $asiento=$datos['res']['recordset'][$i]['Asiento'];
                   $tema=$datos['res']['recordset'][$i]['TemaGeneral'];
-                  $fecha=$datos['res']['recordset'][$i]['FechaCarga'];
                   $urlpdf=$datos['res']['recordset'][$i]['Url'];
+                  $asiento=$datos['res']['recordset'][$i]['Asiento'];
+                  $feCarga=$datos['res']['recordset'][$i]['FechaCarga'];
                   $idInstitucional = $datos['res']['recordset'][$i]['IdentInstitucional'];
                   $voz = $datos['res']['recordset'][$i]['Voz'];
                   $p_claves = $datos['res']['recordset'][$i]['PalabrasClaves'];
-                  $fechaCarga = date('Y-m-d');
                   
-
+                   if($anio < "2022"){
+                         $acro = "ALG";
+                       }else{
+                         $acro = "AJYLG";
+                   }
                   
                   if ($nombre == 'Circular') {
-                    
-                    if($i >= 2 and $i< 8){
+
+                    $n=$n+1;                
+
+                    if ($n > 2 and $n < 9){
                       
-                      echo' <td><h6>'.$asiento.'</h6></td>
+                      echo' <td><h6>CIR-'.$numNor.'-'.$acro.'-'.$anio.'</h6></td>
                             <td>
                               <span class="text-right">
-                                <a href="#verCircular'.$i.'" data-toggle="modal">                          
+                                <a href="#verCircular'.$id.'" data-toggle="modal">                          
                                   <i class="bi bi-eye btn btn-danger verCircular">Ver</i>
                                 </a>
                               </span>
@@ -127,10 +136,10 @@
                             <td></td>
                             <tr>
                             
-                            <div id="verCircular'.$i.'" class="modal fade">
+                            <div id="verCircular'.$id.'" class="modal fade">
                               <div class="modal-dialog modal-content">
                                <div class="modal-header" style="border:1px solid #eee">
-                                 <h3 style="text-black" class="modal-title">'.$asiento.'</h3>
+                                 <h3 style="text-black" class="modal-title">CIR-'.$numNor.'-'.$acro.'-'.$anio.'</h3>
                                </div>
                                <div class="modal-body" style="border:1px solid #eee">
                                   <p class="parrafoContenido">'.$tema.'</p>
@@ -142,8 +151,9 @@
                               </div>
                             </div>';
                        }
-                    }
-                  }
+                     } 
+                }
+              
               ?>
                     
           </table>    

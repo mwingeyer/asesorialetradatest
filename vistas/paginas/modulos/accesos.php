@@ -27,11 +27,13 @@
                           $tipoNorma = '1';
                     ?>
                     <h2 class="h4">
-                        <a class="stretched-link" href="vistas/paginas/buscador/index.php?norma=<?php echo $tipoNorma?>" target="_blank">Dictamenes</a>
+                        <a class="stretched-link" href="#" target="_blank">Dictamenes</a>
                          
                     </h2>
                 </div>
  
         </div>
     </section>
-    <!-- FIN ICONOS Circulares y Dictamenes--> 
+    <!-- FIN ICONOS Circulares y Dictamenes
+    href="vistas/paginas/buscador/index.php?norma=<?php echo $tipoNorma?>"
+    --> 
