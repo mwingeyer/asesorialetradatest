@@ -37,8 +37,6 @@
 		include "paginas/modulos/cabecera.php";
         include "paginas/modulos/linkaccesos.php";
 		include "paginas/modulos/circulares.php";
-        //include "paginas/modulos/circularesPrueba.php";
-        //include "paginas/modulos/notas.php";
         include "paginas/modulos/accesos.php";
 		include "paginas/modulos/organizacion.php";
 		include "paginas/modulos/footer.php";
