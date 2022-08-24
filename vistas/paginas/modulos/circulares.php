@@ -53,7 +53,7 @@
                         <ol id="'.$id.'">
                           <div class="col-lg-12">
                             <h3 class="d-lg-block">CIR-'.$numNor.'-'.$acro.'-'.$anio.'</h3>
-                            <h5 class="my-2 my-lg-5">'.$tema.'</h5> 
+                            <h5 class="my-2 my-lg-2">'.$tema.'</h5> 
                           </div>
                           <span>
                             <a href="#verCircular'.$id.'" data-toggle="modal">                          
@@ -72,7 +72,8 @@
                             </div>
                             <div class="modal-footer d-flex justify-content-between">
                               <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-                              <button type="submit" class="btn btn-primary float-right"><a class="text-white" target="_blank" href ="'.$urlpdf.'">Descargar</a></button>
+                              <button type="submit" class="btn btn-primary float-right"><a class="text-white"target="_blank" href ="'.$urlpdf.'">Descargar</a></button>
+                            
                             </div>  
                           </div>
                         </div>';
@@ -146,7 +147,7 @@
                                </div>
                                <div class="modal-footer d-flex justify-content-between">
                                  <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-                                 <button type="submit" class="btn btn-primary float-right"><a class="text-white" target="_blank" href ="'.$urlpdf.'">Descargar</button>
+                                 <button type="submit" class="btn btn-primary float-right"><a class="text-white" target="_blank" href ="'.$urlpdf.'">Descargar</a></button>
                                </div>  
                               </div>
                             </div>';
