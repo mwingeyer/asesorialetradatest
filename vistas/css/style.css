@@ -9,9 +9,7 @@
 @media (min-width: 992px) {
   .jumbotron-home h1 {
     font-size: 3rem; } }
-/*body {
-  padding-top: 4.2rem; }
-*/
+
 .fecha {
   position: absolute;
   right: 10px;
@@ -756,9 +754,7 @@ CONTENIDO
 /*PANTALLA*/
 
 @media (max-width: 300px) {
-  img{
-    width: 25%
-  }
+ 
     .iconobalanza img{
     width: 50%;
     margin-left: 0px;
@@ -785,9 +781,7 @@ CONTENIDO
     width: 75%;
     margin-left: 0px;
   }
-  img{
-    width: 25%;
-  }
+  
   .cabeza{
     margin-top: 5px!important;
   }
@@ -805,7 +799,6 @@ CONTENIDO
 
 @media (max-width: 992px) {
   .cabecera{
-    height: 250px!important;
     margin-bottom: 0px!important;
   }
   .columanIzquierda{

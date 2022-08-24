@@ -60,10 +60,9 @@
                                                       
                                     <h3 class="d-lg-block">CIR-'.$numNor.'-'.$acro.'-'.$anio.'</h3>
                                     <p class="my-2 my-lg-5">'.$tema.'</p>
-                                    <div class="fecha">'.$anio.'</div> 
-
+                                  
                                   <span>
-                                    <a href="#verCircular'.$id.'" data-toggle="modal">                          
+                                    <a href="#verCircular" data-toggle="modal">                          
                                       <i class="btn btn-danger verCircular">Ver</i>
                                     </a>
                                   </span>

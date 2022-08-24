@@ -16,8 +16,7 @@
         <link rel="shortcut icon" type="image/png" href="vistas/img/favicon.png"/>
 
         <script type="text/javascript" src="vistas/gen/v.js"></script>
-        <script type="text/javascript" src="vistas/js/sitio.min.js"></script>
-        <script type="text/javascript" src="vistas/js/all.min.js"></script>   
+        <script type="text/javascript" src="vistas/js/sitio.min.js"></script>  
        
 
 	<!-- =======================================================
@@ -37,7 +36,8 @@
 		include "paginas/modulos/cabecera.php";
         include "paginas/modulos/linkaccesos.php";
 		include "paginas/modulos/circulares.php";
-        //include "paginas/modulos/circularesPrueba.php";
+        //include "paginas/modulos/datagridcircular.php";
+        //include "paginas/modulos/circularcard.php";
         //include "paginas/modulos/notas.php";
         include "paginas/modulos/accesos.php";
 		include "paginas/modulos/organizacion.php";
@@ -72,7 +72,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
-    <script type="text/javascript" src="vistas/js/scriptCirculares.js"></script>
 
 </body>
 </html>
