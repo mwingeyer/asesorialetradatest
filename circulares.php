@@ -123,7 +123,7 @@
 
                     $n=$n+1;                
 
-                    if ($n > 2 and $n < 8){
+                    if ($n > 2 and $n < 9){
                       
                       echo' <td><h6>CIR-'.$numNor.'-'.$acro.'-'.$anio.'</h6></td>
                             <td>
