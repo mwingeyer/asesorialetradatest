@@ -804,11 +804,11 @@
 }
 
 .light-blue.darken-1 {
-  background-color: #039be5 !important;
+  background-color: #871c28 !important;
 }
 
 .light-blue-text.text-darken-1 {
-  color: #039be5 !important;
+  color: #871c28 !important;
 }
 
 .light-blue.darken-2 {
@@ -2606,7 +2606,7 @@ ul:not(.browser-default) > li {
 }
 
 a {
-  color: #039be5;
+  color: #871c28;
   text-decoration: none;
   -webkit-tap-highlight-color: transparent;
 }

@@ -129,7 +129,7 @@
                             <td>
                               <span class="text-right">
                                 <a href="#verCircular'.$id.'" data-toggle="modal">                          
-                                  <i class="bi bi-eye btn btn-danger verCircular">Ver</i>
+                                  <i class="btn btn-danger verCircular">Ver</i>
                                 </a>
                               </span>
                             </td>
@@ -139,7 +139,7 @@
                             <div id="verCircular'.$id.'" class="modal fade">
                               <div class="modal-dialog modal-content">
                                <div class="modal-header" style="border:1px solid #eee">
-                                 <h3 style="text-black" class="modal-title">CIR-'.$numNor.'-'.$acro.'-'.$anio.'</h3>
+                                 <h3 style="text-black" >CIR-'.$numNor.'-'.$acro.'-'.$anio.'</h3>
                                </div>
                                <div class="modal-body" style="border:1px solid #eee">
                                   <p class="parrafoContenido">'.$tema.'</p>

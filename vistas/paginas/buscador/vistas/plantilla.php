@@ -35,7 +35,8 @@
 		<script src="https://materializecss.com/js/tabs.js" type="text/javascript"></script> 
 		<script type="text/javascript" src="vistas/gen/v.js"></script>
         <script type="text/javascript" src="vistas/js/sitio.min.js"></script>
-        <script type="text/javascript" src="vistas/js/all.min.js"></script>  
+        <script type="text/javascript" src="vistas/js/all.min.js"></script> 
+        <script src="vistas/js/pagination.min.js"></script> 
 		<!-- <script src="js/tabs.js" type="text/javascript"></script> -->
 
 	

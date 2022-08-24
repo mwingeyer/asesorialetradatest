@@ -8,9 +8,7 @@
   src: url(../font/brokman-bold-webfont.woff); }
 @media (min-width: 992px) {
   .jumbotron-home h1 {
-    font-size: 3rem; } }
-body {
-  padding-top: 4.2rem; }
+    font-size: 3rem; } 
 
 h1,
 h2,

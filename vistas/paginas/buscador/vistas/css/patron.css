@@ -9,10 +9,9 @@
 @media (min-width: 992px) {
   .jumbotron-home h1 {
     font-size: 3rem; } }
-body {
-  padding-top: 4.2rem; }
 
-h1,
+
+h1
 h2,
 h3 {
   font-family: "brokman-bold", arial, sans-serif; }

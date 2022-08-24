@@ -13,7 +13,7 @@
 			            </a>
 		        	</div>
 		        	<div class ="col s2">
-		            <a href="" class="navbar-brand">
+		            <a href="../../../index.php" class="navbar-brand">
 		                <img src="vistas/img/asesoriaLetrada.png" width="150">
 		            </a>
 		            </div>
