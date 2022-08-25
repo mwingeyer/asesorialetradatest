@@ -8,6 +8,7 @@
     ];
     $datos=json_decode(file_get_contents('https://sanjuan.gob.ar/ol/?or=8BC9FE18CD734FA4B60CFA24736EC529'),true);
     $id="";
+    $totalRegistros="";
 ?>
 
 <!-- LAYOUT -->
@@ -31,7 +32,7 @@
 	  <div class="col-lg-8 card"> 
 
 	  	 <?php
-            $n =0;
+           
             $cantidad=count($datos['res']['recordset']);
             for($i=0;$i<$cantidad;$i++){
 
@@ -52,17 +53,9 @@
                    }else{
                      $acro = "AJYLG";
               }
-
-              $totalArticulos=$n;
-              echo '<pre>'; print_r($totalArticulos); echo '</pre>';
-
-
 					
 							if ($nombre == 'Circular') {
-								 $n=$n+1; 
-
-                  $totalArticulos=$n;
-              
+								 
 								 echo '<hr aria-hidden="true" style="min-height: 0.1rem!important; background: url(https://d1pucn86e4upao.cloudfront.net/templates/g5_hydrogen/custom/images/borde-colores.svg)!important;">
                         <ol id="'.$id.'">
                           <div class="col-lg-12 card">
@@ -76,7 +69,7 @@
                         </span>
                         </ol>
                         
-                        <div id="verCircular:'.$id.'" class="modal fade">
+                        <div id="verCircular'.$id.'" class="modal fade">
                           <div class="modal-dialog modal-content">
                             <div class="modal-header" style="border:1px solid #eee">
                               <h4 class="modal-title">CIR-'.$numNor.'-'.$acro.'-'.$anio.'</h4>
@@ -89,42 +82,14 @@
                               <button type="submit" class="btn btn-primary float-right"><a class="text-white" target="_blank" href ="'.$urlpdf.'">Descargar</a></button>
                             </div>  
                           </div>
-                        </div>
-                         <div class="col-lg-12 row">
-                          <div class="container d-none d-md-block">
-                            <ul class="pagination justify-content-center" totalPagina="<?php echo $n; ?>"
-                            totalArticulos=$n  paginaActual="<?php echo $paginaActual;?>" rutaPagina>
-                              <li class="waves-effect"><a href="#!">2</a></li>
-                            </ul>
-                          </div>
                         </div>';
                                              
                       }
-						   
                 
              }
-		 ?>
+		    
+         //include "paginacion.php";
+        
+        ?>
 
-
-		
-    <!-- 
-      <div class="col-lg-6">
-        <p>Mostrando  para la búsqueda</p>
-      </div>
-      <div class="col-lg-6 ">
-        <ul class="pagination right">
-          <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-          
-          <li class="waves-effect"><a href="#!">2</a></li>
-          <li class="waves-effect"><a href="#!">3</a></li>
-          <li class="waves-effect"><a href="#!">4</a></li>
-          <li class="waves-effect"><a href="#!">5</a></li>
-          <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-        </ul>			
-      </div>
-    </div> -->
-
-</div>
-<!-- Fin LAYOUT-->
-
-
+   </div>
