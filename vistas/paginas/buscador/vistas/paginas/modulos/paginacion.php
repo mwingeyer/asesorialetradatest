@@ -46,34 +46,35 @@ if ($num_total_rows > 0) {
     $result = $num_total_rows;
     
  
-    echo '<div class="col-12">
+    echo '<div class="row col-12">
             <div class="col-4">
-               <div class="right">
-               <div class="right"> 
-               ';
-    
+              <h5>Mostrar las Circulares</h5>
+               
+            </div>
+          <div class="col-7">
 
 
-    echo '<ul class="pagination">';
- 
-    if ($total_pages > 1) {
-        if ($page != 1) {
-            echo '<li class="page-item"><a class="page-link" href="index.php?page='.($page-1).'"><span aria-hidden="true">&laquo;</span></a></li>';
-        }
- 
-        for ($i=1;$i<=$total_pages;$i++) {
-            if ($page == $i) {
-                echo '<li class="page-item active"><a class="page-link" href="#">'.$page.'</a></li>';
-            } else {
-                echo '<li class="page-item"><a class="page-link" href="index.php?page='.$i.'">'.$i.'</a></li>';
-            }
-        }
- 
-        if ($page != $total_pages) {
-            echo '<li class="page-item"><a class="page-link" href="index.php?page='.($page+1).'"><span aria-hidden="true">&raquo;</span></a></li>';
-        }
-    }
-    echo '</ul>';
-    echo '</div>';
-}
+             <ul class="pagination">';
+          
+             if ($total_pages > 1) {
+                 if ($page != 1) {
+                     echo '<li class="page-item"><a class="page-link" href="index.php?page='.($page-1).'"><span aria-hidden="true">&laquo;</span></a></li>';
+                 }
+          
+                 for ($i=1;$i<=$total_pages;$i++) {
+                     if ($page == $i) {
+                         echo '<li class="page-item active"><a class="page-link" href="#">'.$page.'</a></li>';
+                     } else {
+                         echo '<li class="page-item"><a class="page-link" href="index.php?page='.$i.'">'.$i.'</a></li>';
+                     }
+                 }
+          
+                 if ($page != $total_pages) {
+                     echo '<li class="page-item"><a class="page-link" href="index.php?page='.($page+1).'"><span aria-hidden="true">&raquo;</span></a></li>';
+                 }
+             }
+         echo '</ul>
+             </div>
+         </div>';
+         }
 ?>

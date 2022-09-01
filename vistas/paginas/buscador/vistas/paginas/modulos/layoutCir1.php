@@ -10,28 +10,34 @@
     $id="";
     $totalRegistros="";
 ?>
-
 <!-- LAYOUT -->
 <div class="row">
      
   <!-- Columna de busqueda -->
   <div class="col-lg-3 columanIzquierda"> 
     <div class="col-lg-12">
-    	<h3>Filtrar por:</h3>
-	    <div class="row col-lg-12">
-				<label><i class="material-icons tiny">date_range</i>Ordenado Por:</label>
-				<select class="browser-default">
-				   	<option value="1">Más recientes</option>
-				   	<option value="2">Más antiguas</option>
-				</select>
-			</div>
-	   </div>
-	  </div>
+      <h3>Filtrar por:</h3>
+      <div class="row col-lg-12">
+        <label><i class="material-icons tiny">date_range</i>Ordenado Por:</label>
+        <select class="browser-default">
+            <option value="1">Más recientes</option>
+            <option value="2">Más antiguas</option>
+        </select>
+      </div>
+     </div>
+    </div>
 
-	  <!-- Columna de Encontrados -->
-	  <div class="col-lg-8 card"> 
-
-	  	 <?php
+    <!-- Columna de Encontrados -->
+<div class="card-body col-lg-8">
+    <table class="table table-striped dt-responsive nowrap" width="100%" >
+      <thead>
+        <tr>
+          <th>Título</th>
+          <th>Reseña</th>
+          <th></th>
+        </tr>
+      </thead>
+        <?php
            
             $cantidad=count($datos['res']['recordset']);
             for($i=0;$i<$cantidad;$i++){
@@ -53,23 +59,18 @@
                    }else{
                      $acro = "AJYLG";
               }
-					
-							if ($nombre == 'Circular') {
-								 
+          
+              if ($nombre == 'Circular') {
+                 
 
-                 echo '<hr aria-hidden="true" style="min-height: 0.1rem!important; background: url(https://d1pucn86e4upao.cloudfront.net/templates/g5_hydrogen/custom/images/borde-colores.svg)!important;">
-                        <ol id="'.$id.'">
-                          <div class="col-lg-12 card">
-                            <h3 class="d-lg-block">CIR-'.$numNor.'-'.$acro.'-'.$anio.'</h3>
-                            <h5 class="my-2 my-lg-3">'.$tema.'</h5>
-                          </div>
-                        <span>
-                        <a href="#verCircular'.$id.'" data-toggle="modal">                          
-                        	<i class="btn btn-danger verCircular">Ver</i>
-                        </a>
-                        </span>
-                        </ol>
-                        
+                 echo '<tbody>
+                        <tr>
+                        <td class="col-lg-3"><h5 class="d-lg-block">CIR-'.$numNor.'-'.$acro.'-'.$anio.'</h5></td>
+                       <td><p class="my-2 my-lg-3">'.$tema.'</p></td>
+                       <td><span><a href="#verCircular'.$id.'" data-toggle="modal"><i class="btn btn-danger verCircular">Ver</i></a></span></td>
+                       </tr>
+                       </tbody>
+
                         <div id="verCircular'.$id.'" class="modal fade">
                           <div class="modal-dialog modal-content">
                             <div class="modal-header" style="border:1px solid #eee">
@@ -86,12 +87,7 @@
                         </div>';
                         }                     
                       }
-                
-             
-		    
-         include "paginacion.php";
-
-        
-        ?>
-
-   </div>
+                ?>
+      
+    </table>
+  </div>

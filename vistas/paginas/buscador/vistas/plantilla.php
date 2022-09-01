@@ -21,7 +21,10 @@
 		<link href="vistas/css/materialize.css" rel="stylesheet">
 		<link href="vistas/css/materialize.min.css" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-		
+		<!-- DataTables -->
+		<link rel="stylesheet" href="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.css">	
+		<link rel="stylesheet" href="css/plugins/responsive.bootstrap.min.css">
+
 				
 		<!--=====================================
 		PLUGINS DE JS
@@ -36,7 +39,16 @@
 		<script type="text/javascript" src="vistas/gen/v.js"></script>
         <script type="text/javascript" src="vistas/js/sitio.min.js"></script>
         <script type="text/javascript" src="vistas/js/all.min.js"></script> 
-        <script src="vistas/js/pagination.min.js"></script> 
+        <script src="js/pagination.min.js"></script> 
+        <!-- DataTables https://datatables.net/-->
+		<script src="js/jquery.dataTables.min.js"></script>
+		<script src="js/dataTables.bootstrap4.min.js"></script> 
+		<script src="js/dataTables.responsive.min.js"></script>
+		<script src="js/responsive.bootstrap.min.js"></script>
+		<script type="text/javascript" src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap4.min.js"></script>
+		<script type="text/javascript" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>		
+
 		<!-- <script src="js/tabs.js" type="text/javascript"></script> -->
 
 	
@@ -56,7 +68,7 @@
 		include "paginas/modulos/cabecera.php";
 		include "paginas/modulos/buscador.php";
 		if($_GET['norma'] == 0){		
-			include "paginas/modulos/layoutCir.php";
+			include "paginas/modulos/layoutCir1.php";
 		}else{
 			include "paginas/modulos/layoutDic.php";
 		};
@@ -72,6 +84,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.js"></script>
 
 </body>
 </html>
